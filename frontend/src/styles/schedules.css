@@ -1,0 +1,503 @@
+/* ============================================================================
+   TOAST NOTIFICATION STYLES
+   ============================================================================ */
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  pointer-events: none;
+  max-width: 400px;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideInRight 0.3s ease-out;
+  pointer-events: auto;
+  backdrop-filter: blur(10px);
+  background-color: var(--toast-bg);
+  color: var(--toast-text);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(420px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(420px);
+    opacity: 0;
+  }
+}
+
+.toast.removing {
+  animation: slideOutRight 0.3s ease-in forwards;
+}
+
+/* Success Toast */
+.toast-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  border-left: 4px solid #047857;
+}
+
+.toast-success .toast-icon {
+  color: #ffffff;
+}
+
+/* Error Toast */
+.toast-error {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: #ffffff;
+  border-left: 4px solid #b91c1c;
+}
+
+.toast-error .toast-icon {
+  color: #ffffff;
+}
+
+/* Info Toast */
+.toast-info {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  border-left: 4px solid #1d4ed8;
+}
+
+.toast-info .toast-icon {
+  color: #ffffff;
+}
+
+.toast-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.toast-message {
+  flex: 1;
+  line-height: 1.4;
+}
+
+.toast-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.toast-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.toast-close:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .toast {
+    background-color: #1f2937;
+    color: #f3f4f6;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .toast-container {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    max-width: none;
+  }
+
+  .toast {
+    margin-bottom: 6px;
+  }
+}
+
+/* ============================================================================
+   TABLE AND SCHEDULES STYLES
+   ============================================================================ */
+
+.dash-wrap {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dash-hello {
+  margin-bottom: 32px;
+  color: white;
+}
+
+.dash-hello .eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.dash-hello h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+}
+
+.email-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 8px 12px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-box input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #111827;
+}
+
+.search-box input::placeholder {
+  color: #9ca3af;
+}
+
+.replied-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+}
+
+.replied-toggle input {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.primary-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-btn:hover {
+  background-color: #2563eb;
+}
+
+.primary-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.alert.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.alert.visible {
+  display: flex;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #dc2626;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.link-btn:hover {
+  color: #b91c1c;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.empty-state svg {
+  color: #d1d5db;
+}
+
+/* ============================================================================
+   TABLE STYLES
+   ============================================================================ */
+
+.email-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+}
+
+.email-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.email-table thead {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.email-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+}
+
+.email-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.2s;
+}
+
+.email-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.email-table td {
+  padding: 12px 16px;
+  color: #111827;
+  vertical-align: middle;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.ok {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge.warn {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.cell-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: white;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  border-color: #d1d5db;
+  color: #374151;
+  background-color: #f9fafb;
+}
+
+.icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.icon-btn.danger:hover {
+  border-color: #fca5a5;
+  color: #dc2626;
+  background-color: #fee2e2;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .dash-hello h1 {
+    color: #f9fafb;
+  }
+
+  .email-toolbar {
+    background: transparent;
+  }
+
+  .search-box {
+    background: #1f2937;
+    border-color: #374151;
+  }
+
+  .search-box input {
+    color: #f9fafb;
+  }
+
+  .search-box input::placeholder {
+    color: #6b7280;
+  }
+
+  .replied-toggle {
+    color: #d1d5db;
+  }
+
+  .email-table-wrap {
+    background: #111827;
+    border-color: #374151;
+  }
+
+  .email-table thead {
+    background-color: #1f2937;
+    border-bottom-color: #374151;
+  }
+
+  .email-table th {
+    color: #d1d5db;
+  }
+
+  .email-table tbody tr {
+    border-bottom-color: #1f2937;
+  }
+
+  .email-table tbody tr:hover {
+    background-color: #1f2937;
+  }
+
+  .email-table td {
+    color: #f9fafb;
+  }
+
+  .icon-btn {
+    background: #1f2937;
+    color: #9ca3af;
+    border-color: #374151;
+  }
+
+  .icon-btn:hover {
+    color: #d1d5db;
+    background-color: #272d3e;
+    border-color: #4b5563;
+  }
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .dash-wrap {
+    padding: 16px;
+  }
+
+  .dash-hello h1 {
+    font-size: 24px;
+    color: white;
+  }
+
+  .email-toolbar {
+    flex-direction: column;
+  }
+
+  .search-box {
+    min-width: auto;
+  }
+
+  .email-table {
+    font-size: 12px;
+  }
+
+  .email-table th,
+  .email-table td {
+    padding: 8px;
+  }
+
+  .cell-actions {
+    gap: 4px;
+  }
+
+  .icon-btn {
+    width: 28px;
+    height: 28px;
+  }
+}
